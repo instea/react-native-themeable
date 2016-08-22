@@ -25,7 +25,6 @@ export const themeable = Component => {
 
   class RNTComponent extends Component {
     render() {
-      //const { apply } = this.context
       const apply = this.context[APPLY_KEY]
       if (apply) {
         // merge props

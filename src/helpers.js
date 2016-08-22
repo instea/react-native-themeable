@@ -5,6 +5,5 @@
 */
 export const applyStyle = fn => (type, props) => {
   const style = fn(type, props)
-  // TODO: how to override default component styles
-  return { ...props, style: [ props.style, style ] }
+  return { ...props, style: [ style, props.style ] }
 }
