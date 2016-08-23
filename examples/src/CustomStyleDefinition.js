@@ -1,32 +1,30 @@
 import React, { Component } from 'react'
 import { styles } from './styles'
 
-import { Theme, Text, View, applyStyle } from 'react-native-themeable'
+import { Theme, Text, View, withStyles } from 'react-native-themeable'
 
-const stylable = Object.entries({ View, Text })
-const withStyles = styleDefinition => applyStyle(type => {
-  const entry = stylable.find(e => e[1] === type)
-  return entry ? styleDefinition[entry[0]] : undefined
+const customApply = options => withStyles([
+  {
+    $type: Text,
+    color: options.fontColor,
+    fontSize: options.fontSize,
+    padding: 10,
+  }, {
+    $type: View,
+    backgroundColor: options.backgroundColor,
+  }
+])
+
+const redTheme = customApply({
+  backgroundColor: 'red',
+  fontColor: 'black',
+  fontSize: 16,
 })
 
-const redTheme = withStyles({
-  Text: {
-    color: 'black',
-    fontSize: 16,
-  },
-  View: {
-    backgroundColor: 'red',
-  },
-})
-
-const blueTheme = withStyles({
-  Text: {
-    color: 'white',
-    fontSize: 26, padding: 10,
-  },
-  View: {
-    backgroundColor: 'blue',
-  },
+const blueTheme = customApply({
+  backgroundColor: 'blue',
+  fontColor: 'white',
+  fontSize: 26,
 })
 
 export default class CustomStyleDefinition extends Component {
@@ -35,8 +33,7 @@ export default class CustomStyleDefinition extends Component {
       <View style={styles.container}>
 
         <Text style={styles.description}>
-          This example demonstrates custom `apply` function factory implementation,
-          which provides more convenient API to style themeable components.
+          This example demonstrates custom `apply` function implementation.
           Apply function is flexible and powerful, you can implement your own whenever you need:
         </Text>
 

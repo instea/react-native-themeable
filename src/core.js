@@ -1,7 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
 
-// TODO: Symbols are not implemented in RN, we should consider Symbol polyfill
 const APPLY_KEY = 'RNTApply'
 
 /**

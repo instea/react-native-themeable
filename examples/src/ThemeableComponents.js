@@ -2,40 +2,38 @@ import React, { Component } from 'react'
 import { styles } from './styles'
 import { Text } from 'react-native'
 
-import { Theme, View, applyStyle, themeable } from 'react-native-themeable'
+import { Theme, View, withStyles, themeable } from 'react-native-themeable'
 
 // decorating your own components
 // you can also use ES7 syntax to decorate component with `themeable`
-class _H1 extends Component {
+class _CurrentTime extends Component {
   render() {
+    const time = new Date().toString()
     return (
-      <Text style={this.props.style}>{this.props.children}</Text>
+      <Text style={this.props.style}>{time}</Text>
     )
   }
 }
-const H1 = themeable(_H1)
+const CurrentTime = themeable(_CurrentTime)
 
 // or decorating any other component (including native ones)
-const P = themeable(Text)
+const H1 = themeable(Text)
 
-const redTheme = applyStyle(type => {
-  switch(type) {
-    case View:
-      return {
-        backgroundColor: 'red',
-        padding: 20,
-      }
-    case H1:
-      return {
-        fontSize: 26,
-        color: 'blue',
-      }
-    case P:
-      return {
-        fontSize: 16,
-      }
+const redTheme = withStyles([
+  {
+    $type: View,
+    backgroundColor: 'red',
+    padding: 20,
+  }, {
+    $type: H1,
+    fontSize: 26,
+    color: 'blue',
+  }, {
+    $type: CurrentTime,
+    fontSize: 16,
+    color: 'white',
   }
-})
+])
 
 export default class ThemeableComponents extends Component {
   render() {
@@ -50,9 +48,7 @@ export default class ThemeableComponents extends Component {
         <Theme apply={redTheme}>
           <View>
             <H1>I am heading {'<H1 />'}!</H1>
-            <P>
-              I am a paragraph {'<P />'} created using native component decoration.
-            </P>
+            <CurrentTime />
           </View>
         </Theme>
 

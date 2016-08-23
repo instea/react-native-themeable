@@ -6,15 +6,21 @@ import NestedTheme from './src/NestedTheme'
 import ThemeableComponents from './src/ThemeableComponents'
 import CustomStyleDefinition from './src/CustomStyleDefinition'
 import SwitchTheme from './src/SwitchTheme'
+import ApplyImplementation from './src/ApplyImplementation'
+//import ThemeWithProps from './src/ThemeWithProps'
 
 const examples = [
   { name: 'Basic example', component: Basic },
   { name: 'Nested theme', component: NestedTheme },
-  { name: 'applyStyle helper', component: ApplyStyleHelper },
   { name: 'Theme switcher', component: SwitchTheme },
   { name: 'Themeable components', component: ThemeableComponents },
   { name: 'Custom style definition', component: CustomStyleDefinition },
+  { name: 'Low-level apply implementation', component: ApplyImplementation },
+  { name: 'applyStyle helper', component: ApplyStyleHelper },
 ]
+
+// TODO: implement props merging for TouchableHighlight and others
+//  { name: 'Theme with props', component: ThemeWithProps },
 
 export default class App extends Component {
 

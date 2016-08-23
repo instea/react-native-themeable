@@ -1,46 +1,29 @@
 import React, { Component } from 'react'
 import { styles } from './styles'
 
-import { Theme, Text, View } from 'react-native-themeable'
+import { Theme, Text, View, withStyles } from 'react-native-themeable'
 
-const redTheme = (type, props) => {
-  if (type === Text) {
-    return Object.assign({}, props, {
-      style: {
-        color: 'black',
-        fontSize: 16,
-      }
-    })
+const redTheme = withStyles([
+  {
+    $type: Text,
+    color: 'black',
+    fontSize: 16,
+  }, {
+    $type: View,
+    backgroundColor: 'red',
   }
-  if (type === View) {
-    return Object.assign({}, props, {
-      style: {
-        backgroundColor: 'red',
-      }
-    })
-  }
-  return props
-}
+])
 
-const blueTheme = (type, props) => {
-  if (type === Text) {
-    return Object.assign({}, props, {
-      style: {
-        color: 'white',
-        fontSize: 26,
-        padding: 10,
-      }
-    })
+const blueTheme = withStyles([
+  {
+    $type: Text,
+    color: 'white',
+    fontSize: 26,
+  }, {
+    $type: View,
+    backgroundColor: 'blue',
   }
-  if (type === View) {
-    return Object.assign({}, props, {
-      style: {
-        backgroundColor: 'blue',
-      }
-    })
-  }
-  return props
-}
+])
 
 export default class Basic extends Component {
   render() {
@@ -48,7 +31,7 @@ export default class Basic extends Component {
       <View style={styles.container}>
 
         <Text style={styles.description}>
-          Following elements use different themes represented by basic implemention of `apply` function:
+          Following elements use different themes defined by `withStyles` helper function:
         </Text>
 
         <Theme apply={redTheme}>

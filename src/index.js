@@ -2,10 +2,11 @@ import RN from 'react-native'
 import { themeable } from './core'
 
 const Text = themeable(RN.Text),
-      View = themeable(RN.View)
+      View = themeable(RN.View),
+      TouchableHighlight = themeable(RN.TouchableHighlight)
 
-export { Text, View }
+export { Text, View, TouchableHighlight }
 
 export { Theme, themeable } from './core'
 
-export { applyStyle } from './helpers'
+export { applyStyle, withStyles, withProps } from './helpers'

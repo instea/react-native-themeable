@@ -1,38 +1,31 @@
 import React, { Component } from 'react'
 import { styles } from './styles'
 
-import { Theme, Text, View, applyStyle } from 'react-native-themeable'
+import { Theme, Text, View, withStyles } from 'react-native-themeable'
 
-const redTheme = applyStyle(type => {
-  if (type === Text) {
-    return {
-      color: 'black',
-      fontSize: 16,
-    }
+const redTheme = withStyles([
+  {
+    $type: Text,
+    color: 'black',
+    fontSize: 16,
+  }, {
+    $type: View,
+    backgroundColor: 'red',
+    padding: 20,
   }
-  if (type === View) {
-    return {
-      backgroundColor: 'red',
-      padding: 20,
-    }
-  }
-})
+])
 
-const blueTheme = applyStyle(type => {
-  if (type === Text) {
-    return {
-      color: 'white',
-      fontSize: 26,
-      padding: 10,
-    }
+const blueTheme = withStyles([
+  {
+    $type: Text,
+    color: 'white',
+    fontSize: 26,
+  }, {
+    $type: View,
+    backgroundColor: 'blue',
+    margin: 10,
   }
-  if (type === View) {
-    return {
-      backgroundColor: 'blue',
-      margin: 10,
-    }
-  }
-})
+])
 
 export default class NestedTheme extends Component {
   render() {
