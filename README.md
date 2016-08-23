@@ -4,7 +4,7 @@ Themeable components for React Native.
 **This is work in progress.** Currently we are prototyping the possibilities to create themeable components that can be used as full featured replacement of traditional RN components.
 However we appreciate any feedback (e.g. via issues) either about what would you like to achieve or alternative ideas how to approach themeability. Or just give us a star if you think it might work :)
 
-Following section describes what we want to achieve but we are not yet there. However you can check our working [examples](exampes/src/).
+Following section describes what we want to achieve but we are not yet there. However you can check our working [examples](examples/src/).
 
 ## Questions and answers
 
