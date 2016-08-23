@@ -50,12 +50,12 @@ const themes = { redTheme, greenTheme, blueTheme }
 export default class SwitchTheme extends Component {
   constructor(...args) {
     super(...args)
-    this.state = { theme: redTheme }
+    this.state = { themeName: 'redTheme' }
     this.onValueChange = this.onValueChange.bind(this)
   }
 
-  onValueChange(theme) {
-    this.setState({ theme: themes[theme] })
+  onValueChange(themeName) {
+    this.setState({ themeName })
   }
 
   render() {
@@ -66,9 +66,9 @@ export default class SwitchTheme extends Component {
           In this example you can switch theme dynamically by clicking picker:
         </Text>
 
-        <Theme apply={this.state.theme}>
+        <Theme apply={themes[this.state.themeName]}>
 
-          <Picker onValueChange={this.onValueChange} selectedValue={this.state.theme} style={{width: 100}}>
+          <Picker onValueChange={this.onValueChange} selectedValue={this.state.themeName} style={{width: 100}}>
             <Picker.Item label='red' value='redTheme' />
             <Picker.Item label='green' value='greenTheme' />
             <Picker.Item label='blue' value='blueTheme' />
