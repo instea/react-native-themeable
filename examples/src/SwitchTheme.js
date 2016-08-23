@@ -45,6 +45,8 @@ const greenTheme = applyStyle(type => {
   }
 })
 
+const themes = { redTheme, greenTheme, blueTheme }
+
 export default class SwitchTheme extends Component {
   constructor(...args) {
     super(...args)
@@ -53,7 +55,7 @@ export default class SwitchTheme extends Component {
   }
 
   onValueChange(theme) {
-    this.setState({ theme })
+    this.setState({ theme: themes[theme] })
   }
 
   render() {
@@ -67,9 +69,9 @@ export default class SwitchTheme extends Component {
         <Theme apply={this.state.theme}>
 
           <Picker onValueChange={this.onValueChange} selectedValue={this.state.theme} style={{width: 100}}>
-            <Picker.Item label='red' value={redTheme} />
-            <Picker.Item label='green' value={greenTheme} />
-            <Picker.Item label='blue' value={blueTheme} />
+            <Picker.Item label='red' value='redTheme' />
+            <Picker.Item label='green' value='greenTheme' />
+            <Picker.Item label='blue' value='blueTheme' />
           </Picker>
 
           <View style={{padding: 10}}>
