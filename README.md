@@ -77,9 +77,39 @@ class Header ....
 
 **Q**: And how does a theme look like?
 
-**A**: ...
+**A**: Theme is a function that computes from the `type` and original `props` the new `props` that should be applied.
+Originally we thought that `style` objects should be enough but lot of components use their props for visual effects like `TouchableHighlight.underlayColor`
 
 
-**Q**:
+**Q**: Do I really have to define a function?
 
-**A**:
+**A**: Not really, you can use our helper methods to create theme (function) in more convenient way, e.g.
+
+```
+const redTheme = withStyles([
+  {
+    $type: Text,
+    color: 'white',
+    fontSize: 26,
+  }, {
+    $type: View,
+    backgroundColor: 'red',
+  },
+])
+```
+
+And we hope that community will come up with another solutions how to define the theme - or even with predefined themes.
+
+
+**Q**: Why defining a theme as a function?
+
+**A**: We believe it is a very flexible way. Theme creators can implement any logic inside theme function - e.g. use artificial props to make different styles.
+```
+<Text warning>Hey!</Text>
+…
+theme = (type, props) => { style : {color: props.warning ? ‘orange’ : ‘black’ }}
+```
+
+**Q**: Do you call theme function every time you render a component?
+
+**A**: Yes, we don’t cache results of theme function as functions do not have to be pure. Theme creators can provides different styles (maybe flexbox) based on device orientation. However if your theme function is pure but computationally expensive, you can can cache results in the function.
