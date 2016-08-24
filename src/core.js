@@ -12,12 +12,32 @@ const ORIG_PROPS_KEY = 'RNTOriginalProps'
 export class Theme extends View {
   getChildContext() {
     return {
-      [APPLY_KEY]: this.props.apply
+      [APPLY_KEY]: this.props.apply,
     }
   }
 }
 Theme.childContextTypes = {
-  [APPLY_KEY]: React.PropTypes.func.isRequired
+  [APPLY_KEY]: React.PropTypes.func.isRequired,
+}
+
+/**
+ * Decorator which injects theme context to the component.
+ */
+export const theme = apply => Component => {
+  class ThemeDecorator extends Component {
+    getChildContext() {
+      const childContext = super.getChildContext && super.getChildContext()
+      return {
+        ...childContext,
+        [APPLY_KEY]: apply,
+      }
+    }
+  }
+  ThemeDecorator.childContextTypes = {
+    ...Component.childContextTypes,
+    [APPLY_KEY]: React.PropTypes.func.isRequired,
+  }
+  return ThemeDecorator
 }
 
 /**
@@ -65,17 +85,16 @@ export const themeable = Component => {
   )
 
   RNTComponent.contextTypes = {
-    [APPLY_KEY]: React.PropTypes.func
+    [APPLY_KEY]: React.PropTypes.func,
   }
 
   if (__DEV__) {
     // suppress warning message when calling `super` with modified props
     console.ignoredYellowBox = [
       ...(console.ignoredYellowBox || []),
-      `Warning: ${RNTComponent.displayName}(...): When calling super() in`
+      `Warning: ${RNTComponent.displayName}(...): When calling super() in`,
     ]
   }
 
   return RNTComponent
 }
-

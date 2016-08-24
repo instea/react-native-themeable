@@ -22,7 +22,7 @@ export const withProps = propsDefs => (type, props) => {
     return {
       ...themeProps,
       ...props,
-      style: [ themeProps.style, props.style ]
+      style: [ themeProps.style, props.style ],
     }
   }
   return props

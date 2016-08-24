@@ -7,6 +7,6 @@ const Text = themeable(RN.Text),
 
 export { Text, View, TouchableHighlight }
 
-export { Theme, themeable } from './core'
+export { Theme, themeable, theme } from './core'
 
 export { applyStyle, withStyles, withProps } from './helpers'
