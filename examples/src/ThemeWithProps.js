@@ -24,7 +24,7 @@ const redTheme = withProps([
   }, {
     $type: TouchableHighlight,
     activeOpacity: 0.5,
-    underlayColor: 'blue',
+    underlayColor: 'green',
   }
 ])
 
@@ -43,7 +43,7 @@ const blueTheme = withProps([
   }, {
     $type: TouchableHighlight,
     activeOpacity: 0.8,
-    underlayColor: 'red',
+    underlayColor: 'pink',
   }
 ])
 
@@ -53,13 +53,14 @@ export default class ThemeWithProps extends Component {
       <View style={styles.container}>
 
         <Text style={styles.description}>
-          Following elements use different themes defined by `withStyles` helper function:
+          Following elements use themes which besides styles define component props.
+          You can see that `underlayColor` property of TouchableHighlight is different in each theme.
         </Text>
 
         <Theme apply={redTheme}>
           <View>
             <TouchableHighlight onPress={() => console.log('Hello from red theme!')}>
-              <Text>This component uses red theme with small black fonts</Text>
+              <Text>Red theme - press me to see theme specific highlight color</Text>
             </TouchableHighlight>
           </View>
         </Theme>
@@ -67,7 +68,7 @@ export default class ThemeWithProps extends Component {
         <Theme apply={blueTheme}>
           <View>
             <TouchableHighlight onPress={() => console.log('Hello from blue theme!')}>
-              <Text>This component uses blue theme and large white fonts</Text>
+              <Text>Blue theme - press me to see theme specific highlight color</Text>
             </TouchableHighlight>
           </View>
         </Theme>

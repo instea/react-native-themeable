@@ -7,7 +7,7 @@ import ThemeableComponents from './src/ThemeableComponents'
 import CustomStyleDefinition from './src/CustomStyleDefinition'
 import SwitchTheme from './src/SwitchTheme'
 import ApplyImplementation from './src/ApplyImplementation'
-//import ThemeWithProps from './src/ThemeWithProps'
+import ThemeWithProps from './src/ThemeWithProps'
 
 const examples = [
   { name: 'Basic example', component: Basic },
@@ -17,10 +17,10 @@ const examples = [
   { name: 'Custom style definition', component: CustomStyleDefinition },
   { name: 'Low-level apply implementation', component: ApplyImplementation },
   { name: 'applyStyle helper', component: ApplyStyleHelper },
+  { name: 'Theme with props', component: ThemeWithProps },
 ]
 
 // TODO: implement props merging for TouchableHighlight and others
-//  { name: 'Theme with props', component: ThemeWithProps },
 
 export default class App extends Component {
 

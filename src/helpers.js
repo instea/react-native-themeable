@@ -19,18 +19,9 @@ export const withProps = propsDefs => (type, props) => {
   const def = propsDefs.find(s => s.$type === type)
   if (def) {
     const { $type, ...themeProps } = def // eslint-disable-line
-    console.log('original: ', props.underlayColor)
-    console.log('theme: ', themeProps.underlayColor)
-    const tmp = {
-      ...props,
-      ...themeProps,
-      style: [ themeProps.style, props.style ]
-    }
-    console.log('result: ', tmp.underlayColor)
-    // TODO: it could be possible to override theme props
     return {
-      ...props,
       ...themeProps,
+      ...props,
       style: [ themeProps.style, props.style ]
     }
   }
