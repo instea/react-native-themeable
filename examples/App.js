@@ -85,5 +85,5 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingTop: 40,
     fontSize: 20,
-  }
+  },
 })
