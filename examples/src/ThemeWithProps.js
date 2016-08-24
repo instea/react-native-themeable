@@ -25,7 +25,7 @@ const redTheme = withProps([
     $type: TouchableHighlight,
     activeOpacity: 0.5,
     underlayColor: 'green',
-  }
+  },
 ])
 
 const blueTheme = withProps([
@@ -44,7 +44,7 @@ const blueTheme = withProps([
     $type: TouchableHighlight,
     activeOpacity: 0.8,
     underlayColor: 'pink',
-  }
+  },
 ])
 
 export default class ThemeWithProps extends Component {

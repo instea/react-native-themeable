@@ -12,7 +12,7 @@ const redTheme = withStyles([
     $type: View,
     backgroundColor: 'red',
     padding: 20,
-  }
+  },
 ])
 
 const blueTheme = withStyles([
@@ -24,7 +24,7 @@ const blueTheme = withStyles([
     $type: View,
     backgroundColor: 'blue',
     margin: 10,
-  }
+  },
 ])
 
 export default class NestedTheme extends Component {

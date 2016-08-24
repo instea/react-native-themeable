@@ -11,7 +11,7 @@ const redTheme = withStyles([
   }, {
     $type: View,
     backgroundColor: 'red',
-  }
+  },
 ])
 
 const blueTheme = withStyles([
@@ -22,7 +22,7 @@ const blueTheme = withStyles([
   }, {
     $type: View,
     backgroundColor: 'blue',
-  }
+  },
 ])
 
 export default class Basic extends Component {

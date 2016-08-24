@@ -12,7 +12,7 @@ const customApply = options => withStyles([
   }, {
     $type: View,
     backgroundColor: options.backgroundColor,
-  }
+  },
 ])
 
 const redTheme = customApply({

@@ -16,8 +16,13 @@ class _CurrentTime extends Component {
 }
 const CurrentTime = themeable(_CurrentTime)
 
-// or decorating any other component (including native ones)
-const H1 = themeable(Text)
+// you can also decorate functional components
+const H1 = themeable(props => (
+  <Text style={props.style}>{props.children}</Text>
+))
+
+// or decorate any other component (including native ones)
+const H2 = themeable(Text)
 
 const redTheme = withStyles([
   {
@@ -29,10 +34,14 @@ const redTheme = withStyles([
     fontSize: 26,
     color: 'blue',
   }, {
+    $type: H2,
+    fontSize: 20,
+    color: 'green',
+  }, {
     $type: CurrentTime,
     fontSize: 16,
     color: 'white',
-  }
+  },
 ])
 
 export default class ThemeableComponents extends Component {
@@ -42,12 +51,13 @@ export default class ThemeableComponents extends Component {
 
         <Text style={styles.description}>
           You can plug your components into theme system by using `themeable` decorator.
-          Furthermore you can decorate any component (including native components):
+          Furthermore you can decorate any component (including functional and native components):
         </Text>
 
         <Theme apply={redTheme}>
           <View>
             <H1>I am heading {'<H1 />'}!</H1>
+            <H2>I am heading {'<H2 />'}!</H2>
             <CurrentTime />
           </View>
         </Theme>

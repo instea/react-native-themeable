@@ -12,7 +12,7 @@ const redTheme = withStyles([
   }, {
     $type: View,
     backgroundColor: 'red',
-  }
+  },
 ])
 
 const blueTheme = withStyles([
@@ -23,7 +23,7 @@ const blueTheme = withStyles([
   }, {
     $type: View,
     backgroundColor: 'blue',
-  }
+  },
 ])
 
 const greenTheme = withStyles([
@@ -34,7 +34,7 @@ const greenTheme = withStyles([
   }, {
     $type: View,
     backgroundColor: 'green',
-  }
+  },
 ])
 
 const themes = { redTheme, greenTheme, blueTheme }

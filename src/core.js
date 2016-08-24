@@ -44,32 +44,24 @@ export const theme = apply => Component => {
  * Decorator to plug component into themeable system.
  */
 export const themeable = Component => {
-
-  // TODO: themeable functional components
-
-  function applyTheme(props, ctx) {
-    if (ctx && ctx[APPLY_KEY]) {
-      const apply = ctx[APPLY_KEY]
-      return {
-        ...Component.defaultProps,
-        ...apply(RNTComponent, props),
-      }
-    }
-    return {
-      ...Component.defaultProps,
-      ...props,
-    }
+  const isFunctional = !Component.prototype || !Component.prototype.render
+  if (isFunctional) {
+    return makeFunctinalComponent(Component)
   }
+  return makeComponent(Component)
+}
+
+function makeComponent(Component) {
 
   class RNTComponent extends Component {
 
     constructor(originalProps, ctx) {
-      const props = applyTheme(originalProps, ctx)
+      const props = applyTheme(originalProps, ctx, Component, RNTComponent)
       super(props)
     }
 
     get props() {
-      return applyTheme(this[ORIG_PROPS_KEY], this.context)
+      return applyTheme(this[ORIG_PROPS_KEY], this.context, Component, RNTComponent)
     }
 
     set props(originalProps) {
@@ -97,4 +89,31 @@ export const themeable = Component => {
   }
 
   return RNTComponent
+}
+
+function makeFunctinalComponent(Component) {
+
+  function RNTComponent(props, ctx) {
+    return Component(applyTheme(props, ctx, Component, RNTComponent), ctx)
+  }
+
+  RNTComponent.contextTypes = {
+    [APPLY_KEY]: React.PropTypes.func,
+  }
+
+  return RNTComponent
+}
+
+function applyTheme(props, ctx, OriginalComponent, NewComponent) {
+  if (ctx && ctx[APPLY_KEY]) {
+    const apply = ctx[APPLY_KEY]
+    return {
+      ...OriginalComponent.defaultProps,
+      ...apply(NewComponent, props),
+    }
+  }
+  return {
+    ...OriginalComponent.defaultProps,
+    ...props,
+  }
 }

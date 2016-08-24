@@ -10,13 +10,13 @@ const redTheme = (type, props) => {
         style: {
           color: 'black',
           fontSize: 16,
-        }
+        },
       })
     case View:
       return Object.assign({}, props, {
         style: {
           backgroundColor: 'red',
-        }
+        },
       })
     default:
       return props
@@ -31,13 +31,13 @@ const blueTheme = (type, props) => {
           color: 'white',
           fontSize: 26,
           padding: 10,
-        }
+        },
       })
     case View:
       return Object.assign({}, props, {
         style: {
           backgroundColor: 'blue',
-        }
+        },
       })
     default:
       return props

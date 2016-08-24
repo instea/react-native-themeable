@@ -11,7 +11,7 @@ const redTheme = withStyles([
   }, {
     $type: View,
     backgroundColor: 'red',
-  }
+  },
 ])
 
 // If you use ES7 decorators, you can decorate original component with:
