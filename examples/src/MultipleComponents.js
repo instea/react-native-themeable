@@ -227,75 +227,72 @@ class PickerWrapper extends Component {
   }
 }
 
-class SampleSet extends Component {
-  render() {
-    return (
-      <View style={{flex: 1, flexDirection: 'column'}}>
-        <Row caption='Text'>
-          <TText>Some text</TText>
-        </Row>
-        <Row caption='View'>
-          <TView style={{width: 90, height: 90}}></TView>
-        </Row>
-        <Row caption='TextInput'>
-          <TextInput defaultValue='some input text' />
-        </Row>
-        <Row caption='ActivityIndicator'>
-          <ActivityIndicator
-            animating={true}
-            style={{height: 80}}
-            size="large"
-          />
-        </Row>
-        <Row caption='Modal'>
-          <ModalWrapper />
-        </Row>
-        <Row caption='Picker'>
-          <PickerWrapper />
-        </Row>
-        <Row caption='Refresh control'>
-          <ScrollView style={{height: 80}} refreshControl={
-            <RefreshControl refreshing={true} />
-          } />
-        </Row>
-        <Row caption='Switch'>
-          <SwitchWrapper />
-        </Row>
-        <Row caption='Slider'>
-          <Slider
-            minimumValue={0}
-            maximumValue={100}
-          />
-        </Row>
-        <Row caption='TouchableOpacity'>
-          <TouchableOpacity onPress={() => 0}>
-            <TText>Touch me...</TText>
-          </TouchableOpacity>
-        </Row>
-        <Row caption='TouchableHighlight'>
-          <TouchableHighlight onPress={() => 0}>
-            <TText>Touch me...</TText>
-          </TouchableHighlight>
-        </Row>
-        <Row caption='ScrollView'>
-          <TScrollView horizontal={true}>
-            <View style={{width: 50, height: 50, backgroundColor: 'red'}} />
-            <View style={{width: 50, height: 50, backgroundColor: 'green'}} />
-            <View style={{width: 50, height: 50, backgroundColor: 'blue'}} />
-            <View style={{width: 50, height: 50, backgroundColor: 'yellow'}} />
-            <View style={{width: 50, height: 50, backgroundColor: 'gray'}} />
-          </TScrollView>
-        </Row>
-        <Row caption='Image'>
-          <Image
-            style={{width: 100, height: 100}}
-            source={{uri: 'http://facebook.github.io/react/img/logo_og.png'}}
-          />
-        </Row>
-      </View>
-    )
-  }
-}
+const SampleSet = () => (
+  <View style={{flex: 1, flexDirection: 'column'}}>
+    <Row caption='Text'>
+      <TText>Some text</TText>
+    </Row>
+    <Row caption='View'>
+      <TView style={{width: 90, height: 90}}></TView>
+    </Row>
+    <Row caption='TextInput'>
+      <TextInput defaultValue='some input text' />
+    </Row>
+    <Row caption='ActivityIndicator'>
+      <ActivityIndicator
+        animating={true}
+        style={{height: 80}}
+        size="large"
+      />
+    </Row>
+    <Row caption='Modal'>
+      <ModalWrapper />
+    </Row>
+    <Row caption='Picker'>
+      <PickerWrapper />
+    </Row>
+    <Row caption='Refresh control'>
+      <ScrollView style={{height: 80}} refreshControl={
+        <RefreshControl refreshing={true} />
+      } />
+    </Row>
+    <Row caption='Switch'>
+      <SwitchWrapper />
+    </Row>
+    <Row caption='Slider'>
+      <Slider
+        minimumValue={0}
+        maximumValue={100}
+      />
+    </Row>
+    <Row caption='TouchableOpacity'>
+      <TouchableOpacity onPress={() => 0}>
+        <TText>Touch me...</TText>
+      </TouchableOpacity>
+    </Row>
+    <Row caption='TouchableHighlight'>
+      <TouchableHighlight onPress={() => 0}>
+        <TText>Touch me...</TText>
+      </TouchableHighlight>
+    </Row>
+    <Row caption='ScrollView'>
+      <TScrollView horizontal={true}>
+        <View style={{width: 50, height: 50, backgroundColor: 'red'}} />
+        <View style={{width: 50, height: 50, backgroundColor: 'green'}} />
+        <View style={{width: 50, height: 50, backgroundColor: 'blue'}} />
+        <View style={{width: 50, height: 50, backgroundColor: 'yellow'}} />
+        <View style={{width: 50, height: 50, backgroundColor: 'gray'}} />
+      </TScrollView>
+    </Row>
+    <Row caption='Image'>
+      <Image
+        style={{width: 100, height: 100}}
+        source={{uri: 'http://facebook.github.io/react/img/logo_og.png'}}
+      />
+    </Row>
+  </View>
+)
+
 const RedSampleSet = theme(redTheme)(SampleSet)
 const BlueSampleSet = theme(blueTheme)(SampleSet)
 

@@ -24,6 +24,27 @@ Theme.childContextTypes = {
  * Decorator which injects theme context to the component.
  */
 export const theme = apply => Component => {
+  if (isFunctional(Component)) {
+    return makeFunctionalThemeDecorator(Component, apply)
+  }
+  return makeThemeDecorator(Component, apply)
+}
+
+/**
+ * Decorator to plug component into themeable system.
+ */
+export const themeable = Component => {
+  if (isFunctional(Component)) {
+    return makeFunctinalComponent(Component)
+  }
+  return makeComponent(Component)
+}
+
+function isFunctional(Component) {
+  return !Component.prototype || !Component.prototype.render
+}
+
+function makeThemeDecorator(Component, apply) {
   class ThemeDecorator extends Component {
     getChildContext() {
       const childContext = super.getChildContext && super.getChildContext()
@@ -40,15 +61,24 @@ export const theme = apply => Component => {
   return ThemeDecorator
 }
 
-/**
- * Decorator to plug component into themeable system.
- */
-export const themeable = Component => {
-  const isFunctional = !Component.prototype || !Component.prototype.render
-  if (isFunctional) {
-    return makeFunctinalComponent(Component)
+function makeFunctionalThemeDecorator(Component, apply) {
+  class ThemeDecorator extends React.Component {
+    getChildContext() {
+      const childContext = super.getChildContext && super.getChildContext()
+      return {
+        ...childContext,
+        [APPLY_KEY]: apply,
+      }
+    }
+    render() {
+      return React.createElement(Component, this.props)
+    }
   }
-  return makeComponent(Component)
+  ThemeDecorator.childContextTypes = {
+    ...Component.childContextTypes,
+    [APPLY_KEY]: React.PropTypes.func.isRequired,
+  }
+  return ThemeDecorator
 }
 
 function makeComponent(Component) {
