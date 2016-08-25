@@ -9,11 +9,13 @@ import SwitchTheme from './src/SwitchTheme'
 import ApplyImplementation from './src/ApplyImplementation'
 import ThemeWithProps from './src/ThemeWithProps'
 import ThemeDecorator from './src/ThemeDecorator'
+import MultipleComponents from './src/MultipleComponents'
 
 const examples = [
   { name: 'Basic example', component: Basic },
   { name: 'Nested theme', component: NestedTheme },
   { name: 'Theme switcher', component: SwitchTheme },
+  { name: 'Multiple components', component: MultipleComponents },
   { name: 'Themeable components', component: ThemeableComponents },
   { name: 'Custom style definition', component: CustomStyleDefinition },
   { name: 'Theme with props', component: ThemeWithProps },

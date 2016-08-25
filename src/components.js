@@ -27,7 +27,7 @@ const names = [
   'SwitchAndroid',
   'SwitchIOS',
   'TabBarIOS',
-  'TabBarIOS.Item',
+  //'TabBarIOS.Item', // TODO: needs special handling
   'Text',
   'TextInput',
   'ToolbarAndroid',
