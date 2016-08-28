@@ -1,13 +1,19 @@
 {
   "name": "react-native-themeable",
   "version": "0.1.0",
-  "description": "Utility to create themeable components for React Native",
+  "description": "Themeable components for React Native",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "instea.co",
   "license": "ISC",
+  "keywords": ["react-native", "theme", "themes", "themeable"],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:instea/react-native-themeable.git"
+  },
+  "homepage": "https://github.com/instea/react-native-themeable",
   "devDependencies": {
     "babel-eslint": "^6.1.2",
     "eslint": "^3.3.1",

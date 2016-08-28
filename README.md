@@ -1,17 +1,23 @@
 # react-native-themeable
 Themeable components for React Native.
 
-**This is work in progress.** Currently we are prototyping the possibilities to create themeable components that can be used as full featured replacement of traditional RN components.
-However we appreciate any feedback (e.g. via issues) either about what would you like to achieve or alternative ideas how to approach themeability. Or just give us a star if you think it might work :)
+## Installation
+```
+npm install react-native-themeable --save
+```
 
-Following section describes what we want to achieve but we are not yet there. However you can check our working [examples](examples/src/).
+*We follow semantic versioning but we haven't reach `1.x` milestone yet.*
+
+Currently we are prototyping the possibilities to create themeable components that can be used as full featured replacement of traditional RN components.
+However we appreciate any feedback (e.g. via issues) either about what would you like to achieve or alternative ideas how to approach themeability.
+
+Following section describes what we want to achieve. You can check our working [examples](examples/src/).
 
 ## Questions and answers
 
 **Q**: I don't need more themes, why should I care?
 
-**A**: Well, default RN colors are not bad but most likely you want to create applications that have unique feeling. Yes, you can change colors of almost any component in Android playing with its XML files, but if you don't come from native mobile development world (as I do) you are not comfortable with it. And to be honest I am not sure that how it is possible in iOS. We want to have one JS solution for both platforms (that's why we use RN, isn't it? )
-
+**A**: Well, you want to create applications that have unique feeling. Yes, you can change colors of almost any component in Android playing with its XML files, but if you don't come from native mobile development world you are not comfortable with it. And we want to have one JS solution for both platforms (that's why we use RN, isn't it? )
 
 **Q**: I can create simple components like `MyText` that adds my specific styling.
 
