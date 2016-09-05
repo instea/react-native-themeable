@@ -98,6 +98,28 @@ function makeComponent(Component) {
       this[ORIG_PROPS_KEY] = originalProps
     }
 
+    componentWillReceiveProps(nextProps) {
+      if (super.componentWillReceiveProps) {
+        const props = applyTheme(nextProps, this.context, Component, RNTComponent)
+        return super.componentWillReceiveProps(props)
+      }
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+      if (super.shouldComponentUpdate) {
+        const props = applyTheme(nextProps, this.context, Component, RNTComponent)
+        return super.shouldComponentUpdate(props, nextState)
+      }
+      return true
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+      if (super.componentWillUpdate) {
+        const props = applyTheme(nextProps, this.context, Component, RNTComponent)
+        return super.componentWillUpdate(props, nextState)
+      }
+    }
+
   }
 
   RNTComponent.defaultProps = {}
