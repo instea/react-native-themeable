@@ -10,6 +10,7 @@ import ApplyImplementation from './src/ApplyImplementation'
 import ThemeWithProps from './src/ThemeWithProps'
 import ThemeDecorator from './src/ThemeDecorator'
 import MultipleComponents from './src/MultipleComponents'
+import ClassNameImplementation from './src/ClassNameImplementation'
 
 const examples = [
   { name: 'Basic example', component: Basic },
@@ -22,6 +23,7 @@ const examples = [
   { name: 'Theme decorator', component: ThemeDecorator },
   { name: 'Low-level apply implementation', component: ApplyImplementation },
   { name: 'applyStyle helper', component: ApplyStyleHelper },
+  { name: 'className implementation', component: ClassNameImplementation },
 ]
 
 export default class App extends Component {
