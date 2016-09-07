@@ -11,6 +11,7 @@ import ThemeWithProps from './src/ThemeWithProps'
 import ThemeDecorator from './src/ThemeDecorator'
 import MultipleComponents from './src/MultipleComponents'
 import ClassNameImplementation from './src/ClassNameImplementation'
+import StyleDefinitionUsingJsx from './src/StyleDefinitionUsingJsx'
 
 const examples = [
   { name: 'Basic example', component: Basic },
@@ -24,6 +25,7 @@ const examples = [
   { name: 'Low-level apply implementation', component: ApplyImplementation },
   { name: 'applyStyle helper', component: ApplyStyleHelper },
   { name: 'className implementation', component: ClassNameImplementation },
+  { name: 'Style definition using JSX', component: StyleDefinitionUsingJsx },
 ]
 
 export default class App extends Component {
