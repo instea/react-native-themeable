@@ -43,3 +43,13 @@ export const withStyles = stylesDefs => (type, props) => {
   }
   return props
 }
+
+/**
+ * Chains apply functions passed as arguments.
+ * It can be passed as many functions as needed.
+ * @param { function } apply apply function
+ * @returns { function } apply function
+ */
+export const chain = (...applies) => (type, props) => {
+  return applies.reduce((p, a) => a(type, p), props)
+}

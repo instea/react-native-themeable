@@ -11,6 +11,7 @@ import ThemeWithProps from './src/ThemeWithProps'
 import ThemeDecorator from './src/ThemeDecorator'
 import MultipleComponents from './src/MultipleComponents'
 import ClassNameImplementation from './src/ClassNameImplementation'
+import ChainApplyFunctions from './src/ChainApplyFunctions'
 
 const examples = [
   { name: 'Basic example', component: Basic },
@@ -21,6 +22,7 @@ const examples = [
   { name: 'Custom style definition', component: CustomStyleDefinition },
   { name: 'Theme with props', component: ThemeWithProps },
   { name: 'Theme decorator', component: ThemeDecorator },
+  { name: 'Chain apply functions', component: ChainApplyFunctions },
   { name: 'Low-level apply implementation', component: ApplyImplementation },
   { name: 'applyStyle helper', component: ApplyStyleHelper },
   { name: 'className implementation', component: ClassNameImplementation },
