@@ -1,3 +1,6 @@
+Want to here about themeable application on Reactive 2016 conference, star our [gist](https://gist.github.com/sodik82/0a84e01d0e2a5adcfffd31e5406afdfe)
+___
+
 # react-native-themeable
 Themeable components for React Native.
 
